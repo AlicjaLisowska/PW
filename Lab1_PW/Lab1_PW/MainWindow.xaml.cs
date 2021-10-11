@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
+
+
 namespace Lab1_PW
 {
     /// <summary>
@@ -37,8 +39,8 @@ namespace Lab1_PW
 
         private void Stoper_Click(object sender, RoutedEventArgs e)
         {
-            var Stoper = new Window();
-            Stoper.Show();
+            Window2 w2 = new Window2();
+            w2.ShowDialog();
             this.Close();
         }
     }

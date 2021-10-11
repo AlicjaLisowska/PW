@@ -10,6 +10,7 @@
         <Button Name ="Start" Content="Start" HorizontalAlignment="Left" Margin="108,296,0,0" VerticalAlignment="Top" Height="86" Width="151" Click="Start_Click"/>
         <Button x:Name ="Stop" Content="Stop" HorizontalAlignment="Left" Margin="560,296,0,0" VerticalAlignment="Top" Height="86" Width="151" Click="Stop_Click"/>
         <Label Name="Czas_stoper" Content="Czas_stoper" HorizontalAlignment="Center" VerticalAlignment="Center" Height="53" Width="156" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button Name ="Reset" Content="Reset" HorizontalAlignment="Left" Height="38" Margin="322,313,0,0" VerticalAlignment="Top" Width="186" Click="Reset_Click"/>
 
     </Grid>
 </Window>
