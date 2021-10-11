@@ -1,0 +1,15 @@
+﻿<Window x:Class="Lab1_PW.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab1_PW"
+        mc:Ignorable="d"
+        Title="Window2" Height="450" Width="800">
+    <Grid>
+        <Button Name ="Start" Content="Start" HorizontalAlignment="Left" Margin="108,296,0,0" VerticalAlignment="Top" Height="86" Width="151" Click="Start_Click"/>
+        <Button x:Name ="Stop" Content="Stop" HorizontalAlignment="Left" Margin="560,296,0,0" VerticalAlignment="Top" Height="86" Width="151" Click="Stop_Click"/>
+        <Label Name="Czas_stoper" Content="Czas_stoper" HorizontalAlignment="Center" VerticalAlignment="Center" Height="53" Width="156" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+    </Grid>
+</Window>
