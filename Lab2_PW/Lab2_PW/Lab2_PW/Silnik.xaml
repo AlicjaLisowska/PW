@@ -1,0 +1,41 @@
+﻿<Window x:Class="Lab2_PW.Silnik"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab2_PW"
+        mc:Ignorable="d"
+        Title="Silnik" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="237*"/>
+            <ColumnDefinition Width="563*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="10,22,516,247" Grid.ColumnSpan="2">
+            <Label Content="Rodzaj paliwa:" FontWeight="Bold" FontSize="16"/>
+            <RadioButton Content="Benzyna"/>
+            <RadioButton Content="Diesel"/>
+            <RadioButton Content="Benzyna + Gaz"/>
+            <RadioButton Content="Hybryda"/>
+
+        </StackPanel>
+        <StackPanel Margin="10,162,516,106" Grid.ColumnSpan="2">
+            <Label Content="Moc:" FontWeight="Bold" FontSize="16"/>
+            <ComboBox Width="120">
+                <ComboBoxItem>60KM</ComboBoxItem>
+                <ComboBoxItem>75KM</ComboBoxItem>
+                <ComboBoxItem>80KM</ComboBoxItem>
+                <ComboBoxItem>100KM</ComboBoxItem>
+                <ComboBoxItem>115KM</ComboBoxItem>
+                <ComboBoxItem>120KM</ComboBoxItem>
+                <ComboBoxItem>140KM</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Margin="281,22,52,314" Grid.Column="1">
+            <Label Content="Przewidywana cena:" FontWeight="Bold" FontSize="16"/>
+            <Label Content="Cena" BorderThickness="1,1,1,1" BorderBrush="Black"/>
+        </StackPanel>
+        <Button Content="Powrót" Grid.Column="1" HorizontalAlignment="Left" Margin="306,135,0,0" VerticalAlignment="Top" Height="94" Width="180" FontSize="20" FontWeight="Bold" Click="Button_Click"/>
+
+    </Grid>
+</Window>

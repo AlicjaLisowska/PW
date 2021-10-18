@@ -1,0 +1,15 @@
+﻿<Window x:Class="Lab2_PW.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab2_PW"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Name="Marka" Content="Marka" HorizontalAlignment="Left" Margin="106,174,0,0" VerticalAlignment="Top" Height="77" Width="115" Click="Marka_Click"/>
+        <Button Name="Silnik" Content="Silnik" HorizontalAlignment="Left" Margin="285,174,0,0" VerticalAlignment="Top" Height="77" Width="115" Click="Silnik_Click"/>
+        <Label Name="Cena" Content="Cena" HorizontalAlignment="Left" Margin="487,181,0,0" VerticalAlignment="Top" Height="75" Width="245" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF2B2424" BorderBrush="#FF1D1A1A" IsEnabled="False" Background="#FFCDDADB" BorderThickness="1,1,1,1"/>
+
+    </Grid>
+</Window>
