@@ -9,7 +9,9 @@
     <Grid>
         <Button Name="Marka" Content="Marka" HorizontalAlignment="Left" Margin="106,174,0,0" VerticalAlignment="Top" Height="77" Width="115" Click="Marka_Click"/>
         <Button Name="Silnik" Content="Silnik" HorizontalAlignment="Left" Margin="285,174,0,0" VerticalAlignment="Top" Height="77" Width="115" Click="Silnik_Click"/>
-        <Label Name="Cena" Content="Cena" HorizontalAlignment="Left" Margin="487,181,0,0" VerticalAlignment="Top" Height="75" Width="245" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF2B2424" BorderBrush="#FF1D1A1A" IsEnabled="False" Background="#FFCDDADB" BorderThickness="1,1,1,1"/>
+        <Label Name="sumaCen" Content="Cena" HorizontalAlignment="Left" Margin="487,181,0,0" VerticalAlignment="Top" Height="75" Width="245" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF2B2424" BorderBrush="#FF1D1A1A" IsEnabled="False" Background="#FFCDDADB" BorderThickness="1,1,1,1"/>
+        <Button Name="oblicz" Content="Oblicz" HorizontalAlignment="Center" Margin="0,316,0,0" VerticalAlignment="Top" Height="77" Width="192" Background="#FFDB9696" Click="oblicz_Click"/>
+        <Button Name="zero" Content="Zerowanie ceny" HorizontalAlignment="Center" Margin="0,36,0,0" VerticalAlignment="Top" Height="73" Width="192" Background="#FFECE6B9" Click="Button_Click" IsCancel="True" IsDefault="True"/>
 
     </Grid>
 </Window>

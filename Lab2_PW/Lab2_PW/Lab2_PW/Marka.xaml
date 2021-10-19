@@ -10,23 +10,25 @@
         <StackPanel Margin="34,10,446,309">
             <Label Content="Marka auta:"  FontWeight="Bold" FontSize="16"/>
             <RadioButton Content="Fiat" Checked="RadioButton_Checked"/>
-            <RadioButton Content="Ford"/>
-            <RadioButton Content="Ferrari"/>
+            <RadioButton Content="Ford" Checked="RadioButton_Checked_1"/>
+            <RadioButton Content="Ferrari" Checked="RadioButton_Checked_2"/>
         </StackPanel>
         <StackPanel Margin="34,145,518,172">
             <Label Content="Wyposażenie:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" FontSize="16"/>
-            <CheckBox Content="Elektryczne szyby"/>
-            <CheckBox Content="Podgrzewane siedzenia"/>
-            <CheckBox Content="Klimatyzacja"/>
-            <CheckBox Content="Elektryczne lusterka"/>
+            <CheckBox Name="ElSzyb" Content="Elektryczne szyby" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
+            <CheckBox Name="PodSiedz" Content="Podgrzewane siedzenia" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Checked_1"/>
+            <CheckBox Name="Klima" Content="Klimatyzacja" Checked="CheckBox_Checked_2" Unchecked="CheckBox_Checked_2"/>
+            <CheckBox Name="ElLust" Content="Elektryczne lusterka" Checked="CheckBox_Checked_3" Unchecked="CheckBox_Checked_3" />
 
 
 
         </StackPanel>
         <Button Content="Powrót" HorizontalAlignment="Left" Margin="532,85,0,0" VerticalAlignment="Top" Height="107" Width="195" BorderBrush="#FF030303" FontWeight="Bold" FontSize="18" Click="Button_Click"/>
-        <StackPanel Margin="34,282,492,28">
+        <StackPanel Margin="34,262,492,10">
             <Label Content="Polisa:" FontWeight="Bold" FontSize="16"/>
-            <TextBox Text="Podaj cenę polisy" TextWrapping="Wrap" Width="216" Height="35"/>
+            <TextBox  Name="polisaCena" Text="" TextWrapping="Wrap" Width="216" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="przeslij" Content="Prześlij" Click="Button_Click_1" Height="24" Width="100" Margin="0,3,0,3"/>
+            <Button x:Name="cofnij" Content="Cofnij" Width="99" Height="27" Click="cofnij_Click"/>
         </StackPanel>
         <StackPanel Margin="474,235,14,80">
             <Label Content="Przewidywana cena:" FontSize="18" FontWeight="Bold"/>

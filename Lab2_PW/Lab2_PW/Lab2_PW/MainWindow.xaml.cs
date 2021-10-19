@@ -20,6 +20,9 @@ namespace Lab2_PW
     /// </summary>
     public partial class MainWindow : Window
     {
+       public int sumaMarka ;
+       public int sumaSilnik;
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -27,20 +30,27 @@ namespace Lab2_PW
 
         private void Marka_Click(object sender, RoutedEventArgs e)
         {
-            
-                Marka marka= new Marka();
+                Marka marka= new Marka(this);
                 marka.Show();
-                
-            }
+        }
 
         private void Silnik_Click(object sender, RoutedEventArgs e)
         {
-            Silnik silnik = new Silnik();
-            silnik.Show();
-           
+            Silnik silnik = new Silnik(this);
+            silnik.Show();   
         }
-    }
 
-       
+        private void oblicz_Click(object sender, RoutedEventArgs e)
+        {
+            sumaCen.Content = sumaMarka + sumaSilnik;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            sumaMarka = 0;
+            sumaSilnik = 0;
+            sumaCen.Content = 0;
+        }
+    }       
  }
 

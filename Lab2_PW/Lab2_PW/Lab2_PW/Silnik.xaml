@@ -13,16 +13,16 @@
         </Grid.ColumnDefinitions>
         <StackPanel Margin="10,22,516,247" Grid.ColumnSpan="2">
             <Label Content="Rodzaj paliwa:" FontWeight="Bold" FontSize="16"/>
-            <RadioButton Content="Benzyna"/>
-            <RadioButton Content="Diesel"/>
-            <RadioButton Content="Benzyna + Gaz"/>
-            <RadioButton Content="Hybryda"/>
+            <RadioButton Content="Benzyna" Checked="RadioButton_Checked"/>
+            <RadioButton Content="Diesel" Checked="RadioButton_Checked_1"/>
+            <RadioButton Content="Benzyna + Gaz" Checked="RadioButton_Checked_2"/>
+            <RadioButton Content="Hybryda" Checked="RadioButton_Checked_3"/>
 
         </StackPanel>
         <StackPanel Margin="10,162,516,106" Grid.ColumnSpan="2">
             <Label Content="Moc:" FontWeight="Bold" FontSize="16"/>
-            <ComboBox Width="120">
-                <ComboBoxItem>60KM</ComboBoxItem>
+            <ComboBox Name="moc"  Width="120" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem >60KM</ComboBoxItem>
                 <ComboBoxItem>75KM</ComboBoxItem>
                 <ComboBoxItem>80KM</ComboBoxItem>
                 <ComboBoxItem>100KM</ComboBoxItem>
@@ -33,7 +33,7 @@
         </StackPanel>
         <StackPanel Margin="281,22,52,314" Grid.Column="1">
             <Label Content="Przewidywana cena:" FontWeight="Bold" FontSize="16"/>
-            <Label Content="Cena" BorderThickness="1,1,1,1" BorderBrush="Black"/>
+            <Label Name="cena" Content="Cena" BorderThickness="1,1,1,1" BorderBrush="Black"/>
         </StackPanel>
         <Button Content="Powrót" Grid.Column="1" HorizontalAlignment="Left" Margin="306,135,0,0" VerticalAlignment="Top" Height="94" Width="180" FontSize="20" FontWeight="Bold" Click="Button_Click"/>
 
