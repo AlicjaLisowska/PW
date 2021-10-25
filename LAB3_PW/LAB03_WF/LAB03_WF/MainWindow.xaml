@@ -1,0 +1,27 @@
+﻿<Window x:Class="LAB03_WF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LAB03_WF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ListView Margin="180,24,180,85" Name="Items">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="143"
+               DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="ID" Width="143"
+               DisplayMemberBinding="{Binding ID}" />
+                    <GridViewColumn Header="Count" Width="143"
+               DisplayMemberBinding="{Binding Count}" />
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Name="saveSCV" Content="Save to .scv" HorizontalAlignment="Left" Margin="180,366,0,0" VerticalAlignment="Top" Height="45" Width="101"/>
+        <Button Name="open" Content="Open file" HorizontalAlignment="Center" Margin="0,366,0,0" VerticalAlignment="Top" Height="45" Width="100"/>
+        <Button Name="addNew" Content="Add new item" HorizontalAlignment="Left" Margin="644,40,0,0" VerticalAlignment="Top" Height="56" Width="110" Click="addNew_Click"/>
+    </Grid>
+</Window>
