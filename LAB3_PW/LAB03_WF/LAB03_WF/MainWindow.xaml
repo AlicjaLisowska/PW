@@ -20,8 +20,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Name="saveSCV" Content="Save to .scv" HorizontalAlignment="Left" Margin="180,366,0,0" VerticalAlignment="Top" Height="45" Width="101"/>
-        <Button Name="open" Content="Open file" HorizontalAlignment="Center" Margin="0,366,0,0" VerticalAlignment="Top" Height="45" Width="100"/>
+        <Button Name="savecsv" Content="Save to .csv" HorizontalAlignment="Left" Margin="180,366,0,0" VerticalAlignment="Top" Height="45" Width="101" Click="saveSCV_Click"/>
+        <Button Name="open" Content="Open file" HorizontalAlignment="Center" Margin="0,366,0,0" VerticalAlignment="Top" Height="45" Width="100" Click="open_Click"/>
         <Button Name="addNew" Content="Add new item" HorizontalAlignment="Left" Margin="644,40,0,0" VerticalAlignment="Top" Height="56" Width="110" Click="addNew_Click"/>
     </Grid>
 </Window>

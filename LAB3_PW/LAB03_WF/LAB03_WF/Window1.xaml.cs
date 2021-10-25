@@ -20,29 +20,19 @@ namespace LAB03_WF
     public partial class Window1 : Window
     {
         MainWindow mainwindow;
+       
 
-      
         public Window1(MainWindow mainwindow)
-        {
-            
+        {            
             this.mainwindow = mainwindow;
-            InitializeComponent();
-      
-     
-            
+            InitializeComponent();                       
         }
        
          
-        private void add_Click(object sender, RoutedEventArgs e)
+        public void add_Click(object sender, RoutedEventArgs e)
         {
-         mainwindow.id += 1;
-            List<Row> items = new List<Row>();
-            items.Add(new Row() { Name = nameTextbox.Text, ID =mainwindow.id, Count = int.Parse(countTextbox.Text) });
-        
-            mainwindow.Items.ItemsSource = items;
-        
+            mainwindow.addRow(nameTextbox.Text, countTextbox.Text);        
             this.Close();
-        }
-      
-    }
+        }      
+    } 
 }
