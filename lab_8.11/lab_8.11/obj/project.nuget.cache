@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "t4ONqgFBmgQFE2LbV1O+mxX4pNl+UhwdrIIAMky2dRAKlu52dKeqQj724T8hT9nrMq83PdK6oQ03WAg57EqlYw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\aliso\\source\\repos\\lab_8.11\\lab_8.11\\lab_8.11.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aliso\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\aliso\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
