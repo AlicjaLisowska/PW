@@ -48,61 +48,66 @@ namespace lab_8._11
             {
                 Uri fileUri = new Uri(openFileDialog.FileName);
                 bmiPicture = new BitmapImage(fileUri);
+                RotateTransform rotateTransform = img.LayoutTransform as RotateTransform;
+                rotateTransform = new RotateTransform(0, 0, 0);
+                img.LayoutTransform = rotateTransform;
                 img.Source = bmiPicture;
                 orginalFile = bmiPicture;
+                
             }
         }
         //_________Mirror___Effect______
         private void lustrzane_Click(object sender, RoutedEventArgs e)
         {
-            img.RenderTransformOrigin = new System.Windows.Point(0.5, 0.5);
-            ScaleTransform flipTrans = new ScaleTransform();
-
-            if (mirror == 1)
+            if (bmiPicture != null)
             {
-                flipTrans.ScaleX = -1;
-                mirror = -1;
+                img.RenderTransformOrigin = new System.Windows.Point(0.5, 0.5);
+                ScaleTransform flipTrans = new ScaleTransform();
 
+                if (mirror == 1)
+                {
+                    flipTrans.ScaleX = -1;
+                    mirror = -1;
+                }
+                else if (mirror == -1)
+                {
+                    flipTrans.ScaleX = 1;
+                    mirror = 1;
+                }
+                img.RenderTransform = flipTrans;
             }
-            else if (mirror == -1)
-            {
-                flipTrans.ScaleX = 1;
-                mirror = 1;
-
-            }
-            img.RenderTransform = flipTrans;
-
-
-
-
         }
         //___________________Rotate__________________
         private void obrót_Click(object sender, RoutedEventArgs e)
         {
-            RotateTransform rotateTransform = img.LayoutTransform as RotateTransform;
-            if (rotateTransform == null)
+            if (bmiPicture != null)
             {
-                if (mirror == 1)
+                RotateTransform rotateTransform = img.LayoutTransform as RotateTransform;
+
+                if (rotateTransform == null)
                 {
-                    rotateTransform = new RotateTransform(90,0 , 0);
-                    img.LayoutTransform = rotateTransform;
+                    if (mirror == -1)
+                    {
+                        rotateTransform = new RotateTransform(90, 0, 0);
+                        img.LayoutTransform = rotateTransform;
+                    }
+                    else if (mirror == 1)
+                    {
+                        rotateTransform = new RotateTransform(0, 90, 0);
+                        img.LayoutTransform = rotateTransform;
+                    }
                 }
                 else if (mirror == -1)
                 {
-                    rotateTransform = new RotateTransform(0, 90, 0);
-                    img.LayoutTransform = rotateTransform;
+                    rotateTransform.Angle += 90;
                 }
+                else if (mirror == 1)
+                {
+                    rotateTransform.Angle += -90;
+                }
+                img.VerticalAlignment = VerticalAlignment.Top;
+                img.HorizontalAlignment = HorizontalAlignment.Left;
             }
-            else if(mirror == 1)
-            {
-                rotateTransform.Angle += 90;
-            }
-            else if(mirror == -1)
-            {
-                rotateTransform.Angle+=-90;
-            } 
-            img.VerticalAlignment = VerticalAlignment.Top;
-            img.HorizontalAlignment = HorizontalAlignment.Left;
         }
 
       
