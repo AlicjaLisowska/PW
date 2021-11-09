@@ -9,8 +9,8 @@
     <Grid>
         <Button Name="lustrzane" Content="Lustrzane" HorizontalAlignment="Left" Margin="59,110,0,0" VerticalAlignment="Top" Height="46" Width="108" Click="lustrzane_Click"/>
         <Button Name="obrót" Content="Obrót o 90st." HorizontalAlignment="Left" Margin="59,0,0,0" VerticalAlignment="Center" Height="46" Width="108" Click="obrót_Click"/>
-        <Button Name="zielony" Content="Tylko zielony" HorizontalAlignment="Left" Margin="59,275,0,0" VerticalAlignment="Top" Height="46" Width="108"/>
-        <Button Name="negatyw" Content="Negatyw" HorizontalAlignment="Left" Margin="59,357,0,0" VerticalAlignment="Top" Height="46" Width="108"/>
+        <Button Name="zielony" Content="Tylko zielony" HorizontalAlignment="Left" Margin="59,275,0,0" VerticalAlignment="Top" Height="46" Width="108" Click="zielony_Click"/>
+        <Button Name="negatyw" Content="Negatyw" HorizontalAlignment="Left" Margin="59,357,0,0" VerticalAlignment="Top" Height="46" Width="108" Click="negatyw_Click"/>
         <Button Name="plik" Content="Wybierz plik" HorizontalAlignment="Left" Margin="59,32,0,0" VerticalAlignment="Top" Height="46" Width="108" Click="plik_Click"/>
         <Image Name="img" Stretch="Uniform" HorizontalAlignment="Left" Height="358" Margin="210,32,0,0" VerticalAlignment="Top" Width="538"/>
 

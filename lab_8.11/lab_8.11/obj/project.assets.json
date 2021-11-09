@@ -44,6 +44,15 @@
             "rid": "win"
           }
         }
+      },
+      "System.Reactive.Windows.Forms/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net472/System.Reactive.Windows.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/net472/System.Reactive.Windows.Forms.dll": {}
+        }
       }
     }
   },
@@ -115,11 +124,25 @@
         "system.drawing.common.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "System.Reactive.Windows.Forms/5.0.0": {
+      "sha512": "8etq1f+TYSkBU2Z9WIzErjSiE6/Cz0cZC5G1e1ktxKMTRoNO+gJuoXwm+XCnyHCZtQ3fH6zCRB06AxEzAghzsA==",
+      "type": "package",
+      "path": "system.reactive.windows.forms/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net472/System.Reactive.Windows.Forms.dll",
+        "lib/net472/System.Reactive.Windows.Forms.xml",
+        "system.reactive.windows.forms.5.0.0.nupkg.sha512",
+        "system.reactive.windows.forms.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "System.Drawing.Common >= 6.0.0"
+      "System.Drawing.Common >= 6.0.0",
+      "System.Reactive.Windows.Forms >= 5.0.0"
     ]
   },
   "packageFolders": {
@@ -164,6 +187,10 @@
           "System.Drawing.Common": {
             "target": "Package",
             "version": "[6.0.0, )"
+          },
+          "System.Reactive.Windows.Forms": {
+            "target": "Package",
+            "version": "[5.0.0, )"
           }
         },
         "imports": [
@@ -187,5 +214,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Pakiet „System.Reactive.Windows.Forms 5.0.0” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8” zamiast platformy docelowej projektu „net5.0-windows7.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
+      "libraryId": "System.Reactive.Windows.Forms",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    }
+  ]
 }

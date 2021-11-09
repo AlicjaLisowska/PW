@@ -25,3 +25,4 @@ C:\Users\aliso\source\repos\lab_8.11\lab_8.11\bin\Debug\net5.0-windows\System.Dr
 C:\Users\aliso\source\repos\lab_8.11\lab_8.11\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
 C:\Users\aliso\source\repos\lab_8.11\lab_8.11\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp3.1\System.Drawing.Common.dll
 C:\Users\aliso\source\repos\lab_8.11\lab_8.11\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\aliso\source\repos\lab_8.11\lab_8.11\bin\Debug\net5.0-windows\System.Reactive.Windows.Forms.dll
