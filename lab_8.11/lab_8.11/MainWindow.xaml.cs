@@ -29,7 +29,7 @@ namespace lab_8._11
     {
         int mirror = 1;
         OpenFileDialog openFileDialog;
-        BitmapImage bmiPicture, orginalFile;
+        BitmapImage bmiPicture, orginalFile,beforeNegative,beforeColor;
         Bitmap bmPicture;
         bool onlyGreen = false;
         bool negative = false;
@@ -52,7 +52,7 @@ namespace lab_8._11
                 orginalFile = bmiPicture;
             }
         }
-
+        //_________Mirror___Effect______
         private void lustrzane_Click(object sender, RoutedEventArgs e)
         {
             img.RenderTransformOrigin = new System.Windows.Point(0.5, 0.5);
@@ -76,7 +76,7 @@ namespace lab_8._11
 
 
         }
-
+        //___________________Rotate__________________
         private void obrót_Click(object sender, RoutedEventArgs e)
         {
             RotateTransform rotateTransform = img.LayoutTransform as RotateTransform;
@@ -105,10 +105,12 @@ namespace lab_8._11
             img.HorizontalAlignment = HorizontalAlignment.Left;
         }
 
+      
+        //_________________________Negative____________________
         private void negatyw_Click(object sender, RoutedEventArgs e)
         {
-           
-
+             
+            //new Bitmap
             using (MemoryStream outStream = new MemoryStream())
             {
                 BitmapEncoder enc = new BmpBitmapEncoder();
@@ -122,18 +124,12 @@ namespace lab_8._11
                 }
             }
 
-
-
-
-
-
-            //get image dimension
-
-            //negative
             if (bmPicture != null)
             {
+               
                 if (negative == false)
                 {
+                    beforeNegative = bmiPicture;
                     for (int y = 0; y < bmPicture.Height; y++)
                     {
                         for (int x = 0; x < bmPicture.Width; x++)
@@ -143,47 +139,26 @@ namespace lab_8._11
 
                             //extract ARGB value from p
                             int a = p.A;
-
                             int r = p.R;
                             int g = p.G;
                             int b = p.B;
 
                             //find negative value
-
                             r = 255 - r;
                             g = 255 - g;
                             b = 255 - b;
-
-
-
 
                             //set new ARGB value in pixel
                             bmPicture.SetPixel(x, y, System.Drawing.Color.FromArgb(a, r, g, b));
                         }
                     }
-
-
-                    /* System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
-              bmPicture.GetHbitmap(),
-              IntPtr.Zero,
-              System.Windows.Int32Rect.Empty,
-              BitmapSizeOptions.FromWidthAndHeight(bmPicture.Width, bmPicture.Height));*/
-                    //load negative image in picturebox2
-                    // bmPicture.Save("C:\\Users\\aliso\\Desktop\\gówno\\negative.png");
-
-
-                    img.Source = BitmapToBitmapImage();
-
-
+                    img.Source=bmiPicture= BitmapToBitmapImage();
                     negative = true;
-
-
-                    //save negative image
 
                 }
                 else if (negative == true)
                 {
-                    img.Source = orginalFile;
+                    img.Source =bmiPicture= beforeNegative;
                     negative= false;
 
                 }
@@ -193,7 +168,7 @@ namespace lab_8._11
 
 
 
-
+        //___________________Only__Green_____________
         private void zielony_Click(object sender, RoutedEventArgs e)
         {
             
@@ -210,18 +185,11 @@ namespace lab_8._11
                 }
             }
 
-
-
-
-
-
-            //get image dimension
-
-            //negative
             if (bmPicture != null)
-            {
+            {        
                 if (onlyGreen == false)
                 {
+                    beforeColor = bmiPicture;
                     for (int y = 0; y < bmPicture.Height; y++)
                     {
                         for (int x = 0; x < bmPicture.Width; x++)
@@ -231,7 +199,6 @@ namespace lab_8._11
 
                             //extract ARGB value from p
                             int a = p.A;
-
                             int r = p.R;
                             int g = p.G;
                             int b = p.B;
@@ -242,35 +209,28 @@ namespace lab_8._11
                                 r = 255;
                                 g = 255;
                                 b = 255;
-
                             }
-
-
-
 
                             //set new ARGB value in pixel
                             bmPicture.SetPixel(x, y, System.Drawing.Color.FromArgb(a, r, g, b));
                         }
                     }
 
-
-
-                    img.Source = BitmapToBitmapImage();
+                    img.Source =bmiPicture= BitmapToBitmapImage();
                     onlyGreen = true;
 
                 }
                 else if (onlyGreen == true)
                 {
-                 
-                    img.Source = orginalFile;
+
+                    img.Source = bmiPicture = beforeColor;
                     onlyGreen = false;
                 }
             }
 
         }
-
         
-       // public static extern bool DeleteObject(IntPtr hObject);
+      //_______Convert_Bitmap_to_BitmapImage_________
         private BitmapImage BitmapToBitmapImage()
         {
                 BitmapImage bitmapImage = new BitmapImage();
@@ -283,10 +243,8 @@ namespace lab_8._11
                     bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
                     bitmapImage.EndInit();
                 }
-                return bitmapImage;
-            
+                return bitmapImage;            
 
         }
-
     }
 }
