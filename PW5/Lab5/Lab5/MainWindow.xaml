@@ -7,11 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Name="load" Content="Wczytaj sekwencje" HorizontalAlignment="Left" Margin="65,45,0,0" VerticalAlignment="Top" Height="49" Width="138" Click="load_Click"/>
-        <Button Name="find" Content="Znajdź wzorce" HorizontalAlignment="Left" Margin="65,134,0,0" VerticalAlignment="Top" Height="49" Width="138" Click="find_Click"/>
-        <ComboBox Name="choose" HorizontalAlignment="Left" Margin="65,217,0,0" VerticalAlignment="Top" Width="138" Height="52"/>
-        <TextBox HorizontalAlignment="Left" Margin="65,302,0,0" Text="Wzorce" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Height="110"/>
-        <TextBox Name="wholeSeq" HorizontalAlignment="Left" Margin="302,45,0,0" Text="Sekwencja" TextWrapping="Wrap" VerticalAlignment="Top" Width="451" Height="341" VerticalScrollBarVisibility="Auto"/>
+        <Button Name="load" Content="Wczytaj sekwencje" HorizontalAlignment="Left" Margin="65,28,0,0" VerticalAlignment="Top" Height="49" Width="138" Click="load_Click"/>
+        <Button Name="find" Content="Znajdź wzorce" HorizontalAlignment="Left" Margin="65,118,0,0" VerticalAlignment="Top" Height="49" Width="138" Click="find_Click"/>
+        <ComboBox Name="choose" HorizontalAlignment="Left" Margin="65,216,0,0" VerticalAlignment="Top" Width="138" Height="32" SelectionChanged="choose_SelectionChanged"/>
+
+        <TextBox Name="patterns" HorizontalAlignment="Left" Margin="65,287,0,0" Text="Wzorce" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Height="110"  VerticalScrollBarVisibility="Auto"/>
+        <TextBox Name="wholeSeq" HorizontalAlignment="Left" Margin="302,45,0,0" Text="Sekwencja" TextWrapping="Wrap" VerticalAlignment="Top" Width="451" Height="341" VerticalScrollBarVisibility="Auto" TextChanged="wholeSeq_TextChanged" />
 
     </Grid>
 </Window>

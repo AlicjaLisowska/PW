@@ -1,8 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "MIc9PtT8gShQpqyfTfthn/YvZ83D0H0ZW9nQLdlrKpOMcWg1OG9088kUIlM4mf9jHVP4MQ/x/RY43qBfbzCgzA==",
+  "dgSpecHash": "xJ/iz+Rfrgi2cdY0UofAMFqEuyi9glFD0AAsxY1D6z7KLv8xi6iEVFZlhVmkXG3nkOuVawmCs9fzPqz7MmU8EA==",
   "success": true,
   "projectFilePath": "C:\\Users\\aliso\\Desktop\\PW5\\Lab5\\Lab5\\Lab5.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\aliso\\.nuget\\packages\\baseline\\3.2.1\\baseline.3.2.1.nupkg.sha512",
+    "C:\\Users\\aliso\\.nuget\\packages\\dryioc.dll\\4.8.4\\dryioc.dll.4.8.4.nupkg.sha512",
+    "C:\\Users\\aliso\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\aliso\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\aliso\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
+    "C:\\Users\\aliso\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
+    "C:\\Users\\aliso\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
+    "C:\\Users\\aliso\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
+    "C:\\Users\\aliso\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\aliso\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\aliso\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
+    "C:\\Users\\aliso\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
+  ],
   "logs": []
 }
