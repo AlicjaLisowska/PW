@@ -12,7 +12,7 @@
         <ComboBox Name="choose" HorizontalAlignment="Left" Margin="65,216,0,0" VerticalAlignment="Top" Width="138" Height="32" SelectionChanged="choose_SelectionChanged"/>
 
         <TextBox Name="patterns" HorizontalAlignment="Left" Margin="65,287,0,0" Text="Wzorce" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Height="110"  VerticalScrollBarVisibility="Auto"/>
-        <TextBox Name="wholeSeq" HorizontalAlignment="Left" Margin="302,45,0,0" Text="Sekwencja" TextWrapping="Wrap" VerticalAlignment="Top" Width="451" Height="341" VerticalScrollBarVisibility="Auto" TextChanged="wholeSeq_TextChanged" />
+        <RichTextBox Name="wholeSeq" HorizontalAlignment="Left" Margin="302,45,0,0"   VerticalAlignment="Top" Width="451" Height="341" VerticalScrollBarVisibility="Auto" TextChanged="wholeSeq_TextChanged" />
 
     </Grid>
 </Window>

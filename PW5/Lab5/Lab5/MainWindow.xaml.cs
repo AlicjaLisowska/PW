@@ -18,6 +18,7 @@ using System.Windows;
 using Microsoft.Win32;
 using Baseline.ImTools;
 using ImTools;
+using System.Text.RegularExpressions;
 
 namespace Lab5
 {   
@@ -27,11 +28,11 @@ namespace Lab5
     /// </summary>
     public partial class MainWindow : Window
     {
-        string length;
+        string length="";
         string[] patternSeq;
         Algorithm al = new Algorithm();
-       /* Pattern patt = new Pattern();*/
         List<Pattern> completedPatternSeq = new List<Pattern>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -40,113 +41,134 @@ namespace Lab5
         private void load_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            wholeSeq.Selection.Text = "";
+            choose.Items.Clear();
+            patterns.Text = "";
+
             if (openFileDialog.ShowDialog() == true)
-                wholeSeq.Text = File.ReadAllText(openFileDialog.FileName);
-             length =  wholeSeq.Text = wholeSeq.Text.Replace("\n", "").Replace("\r", "");
+                wholeSeq.Selection.Text = File.ReadAllText(openFileDialog.FileName);
+
+            length =  wholeSeq.Selection.Text = wholeSeq.Selection.Text.Replace("\n", "").Replace("\r", "");
             patternSeq = new string[length.Length - 3];
         }
 
         private void find_Click(object sender, RoutedEventArgs e)
-        {
-            
+        {  
             al.find_Patterns(length, patternSeq);
-            al.count_Patterns(patternSeq, completedPatternSeq);
-            patterns.Text = completedPatternSeq[0].pattern + " - " + completedPatternSeq[0].count;
-
-            for (int i = 1; i < completedPatternSeq.Count; i++)
+            al.count_Patterns(patternSeq, completedPatternSeq,length);
+            if (length.Length != 0)
             {
-                patterns.Text += "\n" + completedPatternSeq[i].pattern + " - " + completedPatternSeq[i].count;
-                choose.Items.Add(completedPatternSeq[i].pattern);
-                choose.Items.Refresh();
-            }
-        }
+                patterns.Text = completedPatternSeq[0].pattern + " - " + completedPatternSeq[0].count;
+                choose.Items.Add(completedPatternSeq[0].pattern);
 
-        private void choose_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            char[] tmpArray = new char[length.Length - 3];
-            string tmp;
-            wholeSeq.Text = "";
-            for (int i = 0; i < completedPatternSeq.Count; i++)
-            {
-
-                int j;
-                for (j = 0; j < patternSeq.Length; j++)
-                {/*
-                    for(int k = 0;k<4; k++)
-                    {
-                        tmpArray[k] = length[j];
-                    }
-                    tmp = new string(tmpArray);
-*/
-
-                    if (patternSeq[j]=="CCCA")
-                    {
-                        patternSeq[j].
-                        wholeSeq.Text += "A";
-                        
-                    }
-                    else
-                    wholeSeq.Text += patternSeq[j];
-                   
+                for (int i = 1; i < completedPatternSeq.Count; i++)
+                {
+                    patterns.Text += "\n" + completedPatternSeq[i].pattern + " - " + completedPatternSeq[i].count;
+                    choose.Items.Add(completedPatternSeq[i].pattern);
                 }
             }
         }
 
-        private void wholeSeq_TextChanged(object sender, TextChangedEventArgs e)
-        {
 
+        private void choose_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string pattern = e.AddedItems[0].ToString();
+            TextPointer seqStart = wholeSeq.Document.ContentStart;
+            TextPointer seqEnd = wholeSeq.Document.ContentEnd;
+            TextRange textRange = new TextRange(seqStart, seqEnd);
+
+            textRange.ClearAllProperties();
+
+            if (textRange.Text != "")
+            {
+                string searchText = pattern;
+
+                for (TextPointer startPointer = wholeSeq.Document.ContentStart;
+                    startPointer.CompareTo(wholeSeq.Document.ContentEnd) <= 0;
+                        startPointer = startPointer.GetNextContextPosition(LogicalDirection.Forward))
+                {
+                    if (startPointer.CompareTo(seqEnd) == 0) 
+                        break;
+
+                    string parsedString = startPointer.GetTextInRun(LogicalDirection.Forward);
+                    int i = parsedString.IndexOf(searchText);
+
+                    if (i >= 0)
+                    {
+                        startPointer = startPointer.GetPositionAtOffset(i);
+                        if (startPointer != null)
+                        {
+                            TextPointer nextPointer = startPointer.GetPositionAtOffset(searchText.Length);
+                            TextRange searchRange = new TextRange(startPointer, nextPointer);
+                            searchRange.ApplyPropertyValue(TextElement.BackgroundProperty, new SolidColorBrush(Colors.GreenYellow));
+                        }
+                    }
+                }
+            }
         }
+        private void wholeSeq_TextChanged(object sender, TextChangedEventArgs e)
+        {}
     }
+
 
     //_______________________________Algorithm class____________________________
     public partial class Algorithm
     {
-
-        
         char[] nukl = new char[4];
         int i;
 
+        public Algorithm()//Constructor
+        {}
 
-        public Algorithm()
-        {
-
-        }
         //____________________________Create patterns (4-mers)____________________________________
         public void find_Patterns(string length, string[]  patternSeq)
         {
             string frag;
-            for ( i = 0; i < (length.Length)-3; i++)
+
+            if (length.Length != null)
             {
-                int j = 0;
-                for (j = 0; j < 4; j++)
+
+                for (i = 0; i < (length.Length) - 3; i++)
                 {
-                    nukl[j] = length[i+j];
+                    int j = 0;
+
+                    for (j = 0; j < 4; j++)
+                    {
+                        nukl[j] = length[i + j];
+                    }
+
+                    frag = new string(nukl);
+                    patternSeq[i] = frag;
                 }
-                frag= new string(nukl);
-                patternSeq[i] = frag ;
+            }
+            else
+            {
             }
         }
         //___________________Count speeches of pattern__________________________
-        public void count_Patterns(string[] patternSeq, List<Pattern> completedPatternSeq)
+        public void count_Patterns(string[] patternSeq, List<Pattern> completedPatternSeq,string length)
         {
-            
+         if(length.Length!=0)   
             for(int i = 0; i<patternSeq.Length; i++)
             {
                 int counter = 1;
-                
-                for (int j = i+1; j < patternSeq.Length; j++)
+                for (int j = 1; j < patternSeq.Length; j++)
                 {
                     if (patternSeq[i] == patternSeq[j])
-                    {
                         counter++;
-                        Array.Clear(patternSeq, 0, 1);
-                    }
                 }
-                if (patternSeq[i] != null && counter>1)
+                Pattern patt = new Pattern(counter, patternSeq[i]);
+                bool addOrNot = false;
+                
+                foreach (Pattern pat in completedPatternSeq)
                 {
-                    Pattern patt = new Pattern(counter, patternSeq[i]);
-                    completedPatternSeq.Add(patt);
+                    if (pat.pattern == patternSeq[i])
+                        addOrNot = true;
                 }
+
+                if(addOrNot==false)
+                completedPatternSeq.Add(patt);
+              
             }
         }
     }
@@ -156,12 +178,10 @@ namespace Lab5
     {
         public int count;
         public string pattern;
-
         public Pattern(int c, string p)
         {
             count = c;
             pattern = p;
         }
     }
-
 }
