@@ -16,6 +16,8 @@ using System.Drawing;
 using System.IO;
 using System.Windows;
 using Microsoft.Win32;
+using System.Xml.Serialization;
+using System.Xml;
 
 
 
@@ -26,6 +28,8 @@ namespace LAB03_WF
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        
         public int id;
         List<Row> items = new List<Row>();
 
@@ -34,6 +38,7 @@ namespace LAB03_WF
             InitializeComponent();
         }
 
+       
         private void addNew_Click(object sender, RoutedEventArgs e)
         {
             Window1 newWindow = new Window1(this);
@@ -46,7 +51,9 @@ namespace LAB03_WF
             items.Add(new Row() { Name = n, ID = id, Count = int.Parse(c) });
             Items.ItemsSource = items;
             Items.Items.Refresh();
+
         }
+
 
         public class Row
         {
@@ -55,36 +62,116 @@ namespace LAB03_WF
             public int Count { get; set; }
         }
 
+        public bool IsNonCloseButtonClicked;
+        private void buttonCloseTheApp_Click(object sender, RoutedEventArgs e)
+        {
+             IsNonCloseButtonClicked = true;
+            this.Close(); // this will trigger the Closing () event method
+        }
+
+
+      
+          
+
+
         private void saveSCV_Click(object sender, RoutedEventArgs e)
         {
-            string save = "";
-            foreach (Row el in items)
-            {
-                save += $"{el.Name},{el.ID},{el.Count}\n";
-            }
+            XmlSerializer xs = new XmlSerializer(typeof(List<Row>));
             SaveFileDialog saveFile;
 
-            SaveFileDialog saveFileCSV= new SaveFileDialog();
-            if (saveFileCSV.ShowDialog()==true)
-            {                
-                File.WriteAllText(saveFileCSV.FileName+".csv", save);
+            SaveFileDialog sFile = new SaveFileDialog();
+            if (sFile.ShowDialog() == true)
+            {
+
+                TextWriter txtWriter = new StreamWriter(sFile.FileName + ".xml");
+
+                xs.Serialize(txtWriter, items);
+
+                txtWriter.Close();
             }
         }
 
 
         private void open_Click(object sender, RoutedEventArgs e)
-        {            
+        {
+           
+
             OpenFileDialog openFile = new OpenFileDialog();
-            if (openFile.ShowDialog()== true)
+            if (openFile.ShowDialog() == true)
             {
                 items.Clear();
-               foreach(string line in File.ReadLines(openFile.FileName))
-                {
-                    string[] args = line.Split(',');
-                    addRow(args[0], args[2]);
-                }
+                XmlSerializer xs = new XmlSerializer(typeof(List<Row>));
+                Stream s = File.OpenRead(openFile.FileName);
+                items = (List<Row>)xs.Deserialize(s);
+                Items.ItemsSource = items;
             }
-           
+
+        }
+
+        private void clear_Click(object sender, RoutedEventArgs e)
+        {
+            items.Clear();
+            Items.ItemsSource = items;
+            Items.Items.Refresh();
+        }
+
+        private void close_Click(object sender, RoutedEventArgs e)
+        {
+
+            string messageBoxText = "Do you want to save changes?";
+            string caption = "Save File";
+            MessageBoxButton button = MessageBoxButton.YesNoCancel;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            MessageBoxResult result;
+            result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                saveSCV_Click(sender, e);
+                this.Close();
+            }
+            else if(result == MessageBoxResult.No)
+            {
+                this.Close();
+              
+            }
+            
+
+        }
+
+        private void search_Click(object sender, RoutedEventArgs e)
+        {
+            int tmpInt;
+            List<Row> tmp = new List<Row>();
+            string text = textSearch.Text;
+            bool check = Int32.TryParse(text, out tmpInt);
+            
+            foreach(Row line in items)
+            {
+                if (check)
+                {
+                    if (line.Count == Int32.Parse(text))
+                    {
+                        tmp.Add(line);
+                        Items.ItemsSource = tmp;
+                        Items.Items.Refresh();
+
+                    }
+                }
+                else
+                {
+                    if (line.Name == text)
+                    {
+                        tmp.Add(line);
+                        textSearch.Text = Int32.Parse(text).ToString();
+                        Items.ItemsSource = tmp;
+                        Items.Items.Refresh();
+                    }
+                }
+
+                
+             }
+            
         }
     }
 }

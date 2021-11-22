@@ -1,8 +1,32 @@
 {
   "version": 2,
-  "dgSpecHash": "0y7txq/2NutoqhngGyPTYVSUKl/JiCFF9Tjp1rC8OWlecsFsQIEeibTZYee2gSrXjfriy573ZKBKoJ6MxXc71w==",
+  "dgSpecHash": "jH+WuhN7h4zqTdT8uMwXRDwWxwExa5M5NvBbcI64Z9Som9B9cRmRHaCghDgn4ZlXKlJmgyECKuVAr63JySjikA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\aliso\\Desktop\\LAB3_PW\\LAB03_WF\\LAB03_WF\\LAB03_WF.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "projectFilePath": "C:\\Users\\aliso\\Desktop\\SEMESTR V\\PROGRAMOWANIE WIZUALNE\\PW\\LAB3_PW\\LAB03_WF\\LAB03_WF\\LAB03_WF.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aliso\\.nuget\\packages\\system.reactive.windows.forms\\5.0.0\\system.reactive.windows.forms.5.0.0.nupkg.sha512",
+    "C:\\Users\\aliso\\.nuget\\packages\\system.windows.forms.ribbon35\\3.5.8\\system.windows.forms.ribbon35.3.5.8.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Pakiet „System.Reactive.Windows.Forms 5.0.0” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8” zamiast platformy docelowej projektu „net5.0-windows7.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
+      "libraryId": "System.Reactive.Windows.Forms",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Pakiet „System.Windows.Forms.Ribbon35 3.5.8” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8” zamiast platformy docelowej projektu „net5.0-windows7.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
+      "libraryId": "System.Windows.Forms.Ribbon35",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    }
+  ]
 }

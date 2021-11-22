@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <ListView Margin="180,24,180,85" Name="Items">
             <ListView.View>
                 <GridView>
@@ -23,5 +26,10 @@
         <Button Name="savecsv" Content="Save to .csv" HorizontalAlignment="Left" Margin="180,366,0,0" VerticalAlignment="Top" Height="45" Width="101" Click="saveSCV_Click"/>
         <Button Name="open" Content="Open file" HorizontalAlignment="Center" Margin="0,366,0,0" VerticalAlignment="Top" Height="45" Width="100" Click="open_Click"/>
         <Button Name="addNew" Content="Add new item" HorizontalAlignment="Left" Margin="644,40,0,0" VerticalAlignment="Top" Height="56" Width="110" Click="addNew_Click"/>
+        <Button Name="clear" Content="Clear" HorizontalAlignment="Left" Height="45" Margin="515,366,0,0" VerticalAlignment="Top" Width="105" Click="clear_Click"/>
+        <Button Name="close" Content="Close" HorizontalAlignment="Left" Margin="658,122,0,0" VerticalAlignment="Top" Height="26" Width="82" Background="#FFFF3D3D" BorderBrush="Black" BorderThickness="2,2,2,2" FontWeight="Bold" Click="close_Click"/>
+        <Button Name="search" Content="Search" HorizontalAlignment="Left" Margin="57,172,0,0" VerticalAlignment="Top" Height="32" Width="73" Click="search_Click"/>
+        <TextBox   Name="textSearch"  HorizontalAlignment="Left" Margin="26,122,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" Height="31" BorderBrush="#FF01030B" BorderThickness="3,3,3,3" FontSize="14"/>
+
     </Grid>
 </Window>

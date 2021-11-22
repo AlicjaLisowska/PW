@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aliso\\Desktop\\LAB3_PW\\LAB03_WF\\LAB03_WF\\LAB03_WF.csproj": {}
+    "C:\\Users\\aliso\\Desktop\\SEMESTR V\\PROGRAMOWANIE WIZUALNE\\PW\\LAB3_PW\\LAB03_WF\\LAB03_WF\\LAB03_WF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aliso\\Desktop\\LAB3_PW\\LAB03_WF\\LAB03_WF\\LAB03_WF.csproj": {
+    "C:\\Users\\aliso\\Desktop\\SEMESTR V\\PROGRAMOWANIE WIZUALNE\\PW\\LAB3_PW\\LAB03_WF\\LAB03_WF\\LAB03_WF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aliso\\Desktop\\LAB3_PW\\LAB03_WF\\LAB03_WF\\LAB03_WF.csproj",
+        "projectUniqueName": "C:\\Users\\aliso\\Desktop\\SEMESTR V\\PROGRAMOWANIE WIZUALNE\\PW\\LAB3_PW\\LAB03_WF\\LAB03_WF\\LAB03_WF.csproj",
         "projectName": "LAB03_WF",
-        "projectPath": "C:\\Users\\aliso\\Desktop\\LAB3_PW\\LAB03_WF\\LAB03_WF\\LAB03_WF.csproj",
+        "projectPath": "C:\\Users\\aliso\\Desktop\\SEMESTR V\\PROGRAMOWANIE WIZUALNE\\PW\\LAB3_PW\\LAB03_WF\\LAB03_WF\\LAB03_WF.csproj",
         "packagesPath": "C:\\Users\\aliso\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aliso\\Desktop\\LAB3_PW\\LAB03_WF\\LAB03_WF\\obj\\",
+        "outputPath": "C:\\Users\\aliso\\Desktop\\SEMESTR V\\PROGRAMOWANIE WIZUALNE\\PW\\LAB3_PW\\LAB03_WF\\LAB03_WF\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aliso\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,16 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "System.Reactive.Windows.Forms": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Windows.Forms.Ribbon35": {
+              "target": "Package",
+              "version": "[3.5.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
