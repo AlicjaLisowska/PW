@@ -29,7 +29,7 @@ namespace LAB03_WF
     public partial class MainWindow : Window
     {
 
-        
+
         public int id;
         List<Row> items = new List<Row>();
 
@@ -38,7 +38,7 @@ namespace LAB03_WF
             InitializeComponent();
         }
 
-       
+
         private void addNew_Click(object sender, RoutedEventArgs e)
         {
             Window1 newWindow = new Window1(this);
@@ -65,13 +65,13 @@ namespace LAB03_WF
         public bool IsNonCloseButtonClicked;
         private void buttonCloseTheApp_Click(object sender, RoutedEventArgs e)
         {
-             IsNonCloseButtonClicked = true;
+            IsNonCloseButtonClicked = true;
             this.Close(); // this will trigger the Closing () event method
         }
 
 
-      
-          
+
+
 
 
         private void saveSCV_Click(object sender, RoutedEventArgs e)
@@ -94,7 +94,7 @@ namespace LAB03_WF
 
         private void open_Click(object sender, RoutedEventArgs e)
         {
-           
+
 
             OpenFileDialog openFile = new OpenFileDialog();
             if (openFile.ShowDialog() == true)
@@ -130,12 +130,12 @@ namespace LAB03_WF
                 saveSCV_Click(sender, e);
                 this.Close();
             }
-            else if(result == MessageBoxResult.No)
+            else if (result == MessageBoxResult.No)
             {
                 this.Close();
-              
+
             }
-            
+
 
         }
 
@@ -145,8 +145,8 @@ namespace LAB03_WF
             List<Row> tmp = new List<Row>();
             string text = textSearch.Text;
             bool check = Int32.TryParse(text, out tmpInt);
-            
-            foreach(Row line in items)
+
+            foreach (Row line in items)
             {
                 if (check)
                 {
@@ -169,9 +169,26 @@ namespace LAB03_WF
                     }
                 }
 
-                
-             }
-            
+
+            }
+
         }
+        private void Dialog_Closing(object sender,
+    System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Do you want save changes?",
+                "Warning", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
+            else if (result == MessageBoxResult.Yes)
+            {
+                savecsv.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
+        }
+    
+
     }
+
 }
