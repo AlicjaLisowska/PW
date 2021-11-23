@@ -1,26 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Drawing;
 using System.IO;
-using System.Windows;
 using Microsoft.Win32;
 using System.Xml.Serialization;
-using System.Xml;
-
-
-
+using System.Configuration;
+using System.Collections.Specialized;
+using System.Reflection;
 namespace LAB03_WF
 {
     /// <summary>
@@ -28,16 +15,23 @@ namespace LAB03_WF
     /// </summary>
     public partial class MainWindow : Window
     {
-
-
         public int id;
         List<Row> items = new List<Row>();
 
         public MainWindow()
         {
             InitializeComponent();
+            NameValueCollection sAll;
+            sAll = ConfigurationManager.AppSettings;           
+            string lOpen = sAll.Get("LastOpen");
+            if (lOpen!= "")
+            {
+                Stream str = File.OpenRead(lOpen);
+                XmlSerializer xs = new XmlSerializer(typeof(List<Row>));
+                items = (List<Row>)xs.Deserialize(str);
+                Items.ItemsSource = items;
+            }
         }
-
 
         private void addNew_Click(object sender, RoutedEventArgs e)
         {
@@ -51,10 +45,9 @@ namespace LAB03_WF
             items.Add(new Row() { Name = n, ID = id, Count = int.Parse(c) });
             Items.ItemsSource = items;
             Items.Items.Refresh();
-
         }
-
-
+        
+     
         public class Row
         {
             public string Name { get; set; }
@@ -62,31 +55,15 @@ namespace LAB03_WF
             public int Count { get; set; }
         }
 
-        public bool IsNonCloseButtonClicked;
-        private void buttonCloseTheApp_Click(object sender, RoutedEventArgs e)
-        {
-            IsNonCloseButtonClicked = true;
-            this.Close(); // this will trigger the Closing () event method
-        }
-
-
-
-
-
-
         private void saveSCV_Click(object sender, RoutedEventArgs e)
         {
             XmlSerializer xs = new XmlSerializer(typeof(List<Row>));
             SaveFileDialog saveFile;
-
             SaveFileDialog sFile = new SaveFileDialog();
             if (sFile.ShowDialog() == true)
             {
-
                 TextWriter txtWriter = new StreamWriter(sFile.FileName + ".xml");
-
                 xs.Serialize(txtWriter, items);
-
                 txtWriter.Close();
             }
         }
@@ -94,18 +71,21 @@ namespace LAB03_WF
 
         private void open_Click(object sender, RoutedEventArgs e)
         {
-
-
             OpenFileDialog openFile = new OpenFileDialog();
             if (openFile.ShowDialog() == true)
             {
                 items.Clear();
                 XmlSerializer xs = new XmlSerializer(typeof(List<Row>));
-                Stream s = File.OpenRead(openFile.FileName);
+
+                Stream s= File.OpenRead(openFile.FileName);
                 items = (List<Row>)xs.Deserialize(s);
                 Items.ItemsSource = items;
+                
+                Configuration configuration = ConfigurationManager.OpenExeConfiguration(Assembly.GetExecutingAssembly().Location);
+                configuration.AppSettings.Settings["LastOpen"].Value = openFile.FileName;
+                configuration.Save();
+                ConfigurationManager.RefreshSection("appSettings");
             }
-
         }
 
         private void clear_Click(object sender, RoutedEventArgs e)
@@ -115,29 +95,7 @@ namespace LAB03_WF
             Items.Items.Refresh();
         }
 
-        private void close_Click(object sender, RoutedEventArgs e)
-        {
-
-            string messageBoxText = "Do you want to save changes?";
-            string caption = "Save File";
-            MessageBoxButton button = MessageBoxButton.YesNoCancel;
-            MessageBoxImage icon = MessageBoxImage.Warning;
-            MessageBoxResult result;
-            result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
-
-            if (result == MessageBoxResult.Yes)
-            {
-                saveSCV_Click(sender, e);
-                this.Close();
-            }
-            else if (result == MessageBoxResult.No)
-            {
-                this.Close();
-
-            }
-
-
-        }
+    
 
         private void search_Click(object sender, RoutedEventArgs e)
         {
@@ -155,7 +113,6 @@ namespace LAB03_WF
                         tmp.Add(line);
                         Items.ItemsSource = tmp;
                         Items.Items.Refresh();
-
                     }
                 }
                 else
@@ -163,32 +120,25 @@ namespace LAB03_WF
                     if (line.Name == text)
                     {
                         tmp.Add(line);
-                        textSearch.Text = Int32.Parse(text).ToString();
                         Items.ItemsSource = tmp;
                         Items.Items.Refresh();
                     }
                 }
-
-
             }
-
         }
-        private void Dialog_Closing(object sender,
-    System.ComponentModel.CancelEventArgs e)
+
+        //Save before close
+        private void Dialog_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Do you want save changes?",
-                "Warning", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show("Do you want save changes?","Warning", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.No)
             {
-                e.Cancel = true;
+                e.Cancel = false; 
             }
             else if (result == MessageBoxResult.Yes)
             {
                 savecsv.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
             }
         }
-    
-
     }
-
 }

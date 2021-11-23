@@ -77,7 +77,7 @@ namespace LAB03_WF {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LAB03_WF;V1.0.0.0;component/window1.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LAB03_WF;component/window1.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Window1.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
