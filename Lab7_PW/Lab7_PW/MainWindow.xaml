@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab7_PW"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Closing="Dialog_Closing" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -43,6 +43,5 @@
         <Button Name="gBack" Content="Give back" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top" Height="43" Width="116" Click="gBack_Click"/>
         <Button Name="aUser" Content="Add user" HorizontalAlignment="Left" Margin="104,369,0,0" VerticalAlignment="Top" Height="43" Width="116" Click="aUser_Click"/>
         <Button Name="aBook" Content="Add book" HorizontalAlignment="Left" Margin="570,369,0,0" VerticalAlignment="Top" Height="43" Width="116" Click="aBook_Click"/>
-        <TextBlock Name="error" HorizontalAlignment="Center" Margin="0,390,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="301"/>
     </Grid>
 </Window>
