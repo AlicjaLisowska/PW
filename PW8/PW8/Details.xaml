@@ -1,0 +1,14 @@
+﻿<Window x:Class="PW8.Details"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PW8"
+        mc:Ignorable="d"
+        Title="Details" Height="440" Width="426">
+    <Grid Margin="0,0,10,31">
+        <Button Name="close" Content="Close" HorizontalAlignment="Center" Margin="0,306,0,0" VerticalAlignment="Top" Height="64" Width="198" Click="close_Click"/>
+        <TextBlock Name="text" HorizontalAlignment="Left" Margin="51,45,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="235" Width="321"/>
+
+    </Grid>
+</Window>

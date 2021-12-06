@@ -1,0 +1,30 @@
+﻿<Window x:Class="PW8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PW8"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Name="details" Content="Details" HorizontalAlignment="Left" Height="68" Margin="487,315,0,0" VerticalAlignment="Top" Width="184" Click="details_Click"/>
+        <StackPanel Margin="472,134,112,141">
+            <Label Content="Wybierz opcję:" Height="32"/>
+            <CheckBox Content="Kod lotniska ICAO" Height="23"/>
+            <CheckBox Content="Kod lotniska IATA" Height="23"/>
+            <CheckBox Content="Liczba pasażerów" Height="21"/>
+            <CheckBox Content="Województwo" Height="21"/>
+            <CheckBox Content="Miasto"/>
+        </StackPanel>
+        <ListView Margin="27,34,346,51" Name="airportsList">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="airportHeader" Width="420" DisplayMemberBinding="{Binding portName}" />
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock Name="test" HorizontalAlignment="Left" Margin="487,34,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="95" Width="277"/>
+
+    </Grid>
+</Window>
