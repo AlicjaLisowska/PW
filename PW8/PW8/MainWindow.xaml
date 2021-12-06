@@ -10,11 +10,11 @@
         <Button Name="details" Content="Details" HorizontalAlignment="Left" Height="68" Margin="487,315,0,0" VerticalAlignment="Top" Width="184" Click="details_Click"/>
         <StackPanel Margin="472,134,112,141">
             <Label Content="Wybierz opcję:" Height="32"/>
-            <CheckBox Content="Kod lotniska ICAO" Height="23"/>
-            <CheckBox Content="Kod lotniska IATA" Height="23"/>
-            <CheckBox Content="Liczba pasażerów" Height="21"/>
-            <CheckBox Content="Województwo" Height="21"/>
-            <CheckBox Content="Miasto"/>
+            <CheckBox Name="icao" Content="Kod lotniska ICAO" Height="23" IsChecked="False"/>
+            <CheckBox Name="iata" Content="Kod lotniska IATA" Height="23" IsChecked="False"/>
+            <CheckBox Name="pass" Content="Liczba pasażerów" Height="23" IsChecked="False"/>
+            <CheckBox Name="voi" Content="Województwo" Height="23" IsChecked="False"/>
+            <CheckBox Name="city" Content="Miasto"/>
         </StackPanel>
         <ListView Margin="27,34,346,51" Name="airportsList">
             <ListView.View>
@@ -24,7 +24,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBlock Name="test" HorizontalAlignment="Left" Margin="487,34,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="95" Width="277"/>
 
     </Grid>
 </Window>

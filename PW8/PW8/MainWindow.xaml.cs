@@ -15,21 +15,24 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Windows;
 using Microsoft.Win32;
-
+using Microsoft.VisualBasic.FileIO;
 
 namespace PW8
 {
-    
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Airport> airportList = new List<Airport>();
+        Details detailsWindow = new Details();
+        public List<Airport> airportList = new List<Airport>();
         public string file;
         string[] tab;
-        string[] table;
+        List<string> table;
         string[] table_2;
+        string tmp;
+
         public MainWindow()
         {
 
@@ -37,105 +40,96 @@ namespace PW8
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
                 file = File.ReadAllText(openFileDialog.FileName);
-            tab = file.Split(',');
-            string.Join(' ', file);
-            table = file.Split('\n');
-           
-            
-            loadArrey();
+            string workingDirectory = Environment.CurrentDirectory;
+            string path = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+            string fileContent = File.ReadAllText(path + "\\" + "Test_Data.csv",Encoding.UTF8);
+            using (TextFieldParser csvParser = new TextFieldParser(path + "\\" + "Test_Data.csv"))
+            {
+                csvParser.SetDelimiters(new string[] { "," });
+                csvParser.HasFieldsEnclosedInQuotes = true;
+
+                csvParser.ReadLine();
+                csvParser.ReadLine();
+                while (!csvParser.EndOfData)
+                {
+                    tab = csvParser.ReadFields();
+                    loadArrey();
+                }
+
+
+            }
+
+            //To działało
+            /*
+                        tab = file.Split('"');
+                        table=tab.ToList();
+                        table.RemoveRange(0, 2);
+                        *//*string.Join('', table);*//*
+
+
+
+                        tab = table.ToArray();
+                        tmp = string.Join('"', tab);
+                        tab = tmp.Split(',');
+                        tmp=string.Join('\n', tab);
+                        tab = tmp.Split('\n');
+                        */
+            //Do td
+            //string.Join(' ', file);
+            //table = file.Split('\n');
+
+
+
 
         }
 
         private void details_Click(object sender, RoutedEventArgs e)
         {
+            /*  int sele = airportsList.SelectedIndex;
+              string activeAirport = airportList[sele].portName;*/
+
+            Checked();
             
-            Details detailsWindow = new Details();
             detailsWindow.Show();
+           
         }
 
         public class Airport
         {
-            public  string city { get; set; }
-            public  string voivov { get; set; }
+            public string city { get; set; }
+            public string voivov { get; set; }
             public string icao { get; set; }
-            public  string iata { get; set; }
-            public  string portName { get; set; }
-            public  string passengerNumber { get; set; }
-            public  string change { get; set; }
+            public string iata { get; set; }
+            public string portName { get; set; }
+            public string passengerNumber { get; set; }
+            public string change { get; set; }
 
         }
         void loadArrey()
         {
-            int first_time = 0;
-            int counter=0;
-            Airport airport = new Airport();
-            foreach (string i in table)
-            {
-                table_2 = table[counter].Split(',');
-                if (counter!=0)
-                    
-                foreach(string j in table_2) {
-
-                        if (counter == 1)
-                        {
-                            airport.city= j;
-                            //test.Text += airport.icao;
-                        }
-                        if (counter == 1)
-                {
-                    airport.voivov = j;
-                    //test.Text += airport.icao;
-                }
-                if (counter == 2)
-                {
-                    airport.icao = j;
-                    //test.Text += airport.icao;
-                }
-                if (counter == 3)
-                {
-                    airport.iata = j;
-                    //  test.Text += airport.iata;
-                }
-                if (counter == 4)
-                {
-
-                    airport.portName = j;
-                    //test.Text += airport.portName;
-                }
-                if (counter == 5)
-                {
-                    airport.passengerNumber = j;
-
-                    //test.Text += airport.passengerNumber;
-                }
-                if (counter == 6)
-                {
-                    airport.change = j;
-                    // test.Text += airport.change;
-                   
-
-                        airportList.Add(new Airport() { city = airport.city, voivov = airport.voivov, icao = airport.icao, iata = airport.iata, portName = airport.portName, passengerNumber = airport.passengerNumber, change = airport.change });
-                        airportsList.ItemsSource = airportList;
-                        airportsList.Items.Refresh();
-                        test.Text = "";
-                        test.Text = "x";
-                    
-                    
-                }
-                        counter += 1;
-                        if (counter == 7)
-                            counter = 0;
-                    }
-                
-                
+      airportList.Add(new Airport() { city = tab[0], voivov = tab[1], icao = tab[2], iata = tab[3], portName = tab[4], passengerNumber = tab[5], change = tab[6] });
+            airportsList.ItemsSource = airportList;
+            airportsList.Items.Refresh();
 
 
 
-            }
-            //test.Text = table[1];//airportList[1].portName;
 
 
         }
+        public void Checked()
+        {
+            if (icao.IsChecked == true)
+               detailsWindow.text.Text += "Kod lotniska ICAO: " + airportList[airportsList.SelectedIndex].icao+'\n';
+            if (iata.IsChecked == true)
+                detailsWindow.text.Text += "Kod lotniska IATA: " + airportList[airportsList.SelectedIndex].iata+'\n';
+            if (pass.IsChecked == true)
+                detailsWindow.text.Text += "Liczba pasażerów: " + airportList[airportsList.SelectedIndex].passengerNumber+'\n';
+            if (voi.IsChecked == true)
+                detailsWindow.text.Text += "Województwo: " + airportList[airportsList.SelectedIndex].voivov+'\n';
+            if (city.IsChecked == true)
+                detailsWindow.text.Text += "Miasto: " + airportList[airportsList.SelectedIndex].city;
+        }
     }
-   
 }
+   
+
