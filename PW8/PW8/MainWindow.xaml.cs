@@ -29,20 +29,13 @@ namespace PW8
         public List<Airport> airportList = new List<Airport>();
         public string file;
         string[] tab;
-        List<string> table;
-        string[] table_2;
-        string tmp;
 
         public MainWindow()
         {
-
             InitializeComponent();
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == true)
-                file = File.ReadAllText(openFileDialog.FileName);
+
             string workingDirectory = Environment.CurrentDirectory;
             string path = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-            string fileContent = File.ReadAllText(path + "\\" + "Test_Data.csv",Encoding.UTF8);
             using (TextFieldParser csvParser = new TextFieldParser(path + "\\" + "Test_Data.csv"))
             {
                 csvParser.SetDelimiters(new string[] { "," });
@@ -55,43 +48,14 @@ namespace PW8
                     tab = csvParser.ReadFields();
                     loadArrey();
                 }
-
-
             }
-
-            //To działało
-            /*
-                        tab = file.Split('"');
-                        table=tab.ToList();
-                        table.RemoveRange(0, 2);
-                        *//*string.Join('', table);*//*
-
-
-
-                        tab = table.ToArray();
-                        tmp = string.Join('"', tab);
-                        tab = tmp.Split(',');
-                        tmp=string.Join('\n', tab);
-                        tab = tmp.Split('\n');
-                        */
-            //Do td
-            //string.Join(' ', file);
-            //table = file.Split('\n');
-
-
-
-
         }
 
         private void details_Click(object sender, RoutedEventArgs e)
         {
-            /*  int sele = airportsList.SelectedIndex;
-              string activeAirport = airportList[sele].portName;*/
-
             Checked();
-            
             detailsWindow.Show();
-           
+            detailsWindow = new Details();
         }
 
         public class Airport
@@ -107,15 +71,11 @@ namespace PW8
         }
         void loadArrey()
         {
-      airportList.Add(new Airport() { city = tab[0], voivov = tab[1], icao = tab[2], iata = tab[3], portName = tab[4], passengerNumber = tab[5], change = tab[6] });
+            airportList.Add(new Airport() { city = tab[0], voivov = tab[1], icao = tab[2], iata = tab[3], portName = tab[4], passengerNumber = tab[5], change = tab[6] });
             airportsList.ItemsSource = airportList;
             airportsList.Items.Refresh();
-
-
-
-
-
         }
+
         public void Checked()
         {
             if (icao.IsChecked == true)

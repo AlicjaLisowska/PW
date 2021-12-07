@@ -22,16 +22,12 @@ namespace PW8
         MainWindow mainwindow;
         public Details()
         {
-            
-            InitializeComponent();
-              
-            
+            InitializeComponent();    
         }
 
         private void close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            
         }
      
     }
