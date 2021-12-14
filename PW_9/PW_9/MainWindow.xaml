@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PW_9"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1618" Width="1329" ResizeMode="NoResize"
+        Title="MainWindow" Height="1618" Width="1329" ResizeMode="NoResize" Closing="Dialog_Closing"
 
         
     >
@@ -18,12 +18,12 @@
                 <ColumnDefinition Width="116*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBox HorizontalAlignment="Left" Margin="862,105,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Height="30"/>
-            <TextBox HorizontalAlignment="Left" Margin="403,100,0,0" Text="Politechnika Poznańska" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Height="30"/>
-            <TextBox HorizontalAlignment="Left" Margin="862,140,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Height="30"/>
-            <TextBox HorizontalAlignment="Left" Margin="403,135,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Height="30" TextChanged="TextBox_TextChanged"/>
-            <TextBox HorizontalAlignment="Left" Margin="862,175,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Height="30"/>
-            <TextBox HorizontalAlignment="Left" Margin="403,170,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Height="30"/>
+            <TextBox Name="profilStudiów" HorizontalAlignment="Left" Margin="862,105,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Height="30"/>
+            <TextBox Name="nazwaUczelni"  HorizontalAlignment="Left" Margin="403,100,0,0" Text="Politechnika Poznańska" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Height="30" />
+            <TextBox Name="formaStudiów" HorizontalAlignment="Left" Margin="862,140,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Height="30"/>
+            <TextBox Name="kierunek" HorizontalAlignment="Left" Margin="403,135,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Height="30" TextChanged="TextBox_TextChanged"/>
+            <TextBox Name="poziomStudiów" HorizontalAlignment="Left" Margin="862,175,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Height="30"/>
+            <TextBox Name="studiaWZakresie" HorizontalAlignment="Left" Margin="403,170,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Height="30"/>
             <TextBlock HorizontalAlignment="Left" Margin="343,247,0,0" Text="Zobowiązuję/zobowiązujemy się samodzielnie wykonać pracę w zakresie wyspecyfikowanym niżej. Wszystkie elementy (m.in. rysunki, tabele, cytaty, programy komputerowe, urządzenia itp.), które zostaną wykorzystane w pracy, a nie będą mojego/naszego autorstwa będą w odpowiedni sposób zaznaczone i będzie podane źródło ich pochodzenia. " TextWrapping="Wrap" VerticalAlignment="Top" Height="56" Width="820"/>
             <TextBlock HorizontalAlignment="Left" Margin="343,308,0,0" Text="Jeżeli w wyniku realizacji pracy zostanie dokonany wynalazek, wzór użytkowy, wzór przemysłowy, znak towarowy, prawa do rozwiązań przysługiwać będą Politechnice Poznańskiej. Prawo to zostanie uregulowane odrębną umową.
 Oświadczam, iż o wyniku prac wskazanych powyżej, a także o innych, w tym tych, które mogą być przedmiotem tajemnicy Politechniki Poznańskiej, niezwłocznie powiadomię promotora pracy.
@@ -40,32 +40,51 @@ Zobowiązuję się ponadto do zachowania w tajemnicy wszystkich informacji techn
             <Label Content="Student:" HorizontalAlignment="Left" Margin="320,497,0,0" VerticalAlignment="Top" Height="31" Width="78"/>
             <Label Content="Student:" HorizontalAlignment="Left" Margin="320,533,0,0" VerticalAlignment="Top" Height="31" Width="78"/>
             <Label Content="Student:" HorizontalAlignment="Left" Margin="320,571,0,0" VerticalAlignment="Top" Height="31" Width="78"/>
-            <TextBox HorizontalAlignment="Left" Margin="395,682,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="694" Height="31"/>
-            <TextBox HorizontalAlignment="Left" Margin="395,717,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="694" Height="31"/>
+            <TextBox Name="tytułPracy" HorizontalAlignment="Left" Margin="395,682,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="694" Height="31"/>
+            <TextBox Name="tytułpoAngl" HorizontalAlignment="Left" Margin="395,717,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="694" Height="31"/>
             <Label Content="Tytuł pracy: " HorizontalAlignment="Left" Margin="299,682,0,0" VerticalAlignment="Top" Height="28" Width="78"/>
             <Label Content="Wersja angielska tytułu: " HorizontalAlignment="Left" Margin="239,717,0,0" VerticalAlignment="Top" Height="26" Width="134"/>
             <Label Content="Dane Wejściowe: " HorizontalAlignment="Left" Margin="272,757,0,0" VerticalAlignment="Top" Height="31" Width="105"/>
-            <TextBox HorizontalAlignment="Left" Height="113" Margin="398,772,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="691"/>
+            <TextBox Name="daneW" HorizontalAlignment="Left" Height="113" Margin="398,772,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="691"/>
             <Label Content="Zakres pracy: " HorizontalAlignment="Left" Height="31" Margin="284,890,0,0" VerticalAlignment="Top" Width="80"/>
-            <TextBox HorizontalAlignment="Left" Height="112" Margin="398,906,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="691"/>
-            <TextBox HorizontalAlignment="Left" Margin="398,1023,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="694" Height="31"/>
-            <TextBox HorizontalAlignment="Left" Margin="398,1059,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="694" Height="31"/>
+            <TextBox Name="zakres" HorizontalAlignment="Left" Height="112" Margin="398,906,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="691"/>
+            <TextBox Name="term" HorizontalAlignment="Left" Margin="398,1023,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="694" Height="31"/>
+            <TextBox Name="promo" HorizontalAlignment="Left" Margin="398,1059,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="694" Height="31"/>
             <Label Content="Termin oddania pracy: " HorizontalAlignment="Left" Margin="234,1021,0,0" VerticalAlignment="Top"/>
             <Label Content="Promotor:" HorizontalAlignment="Left" Margin="299,1057,0,0" VerticalAlignment="Top" Width="73"/>
-            <TextBox HorizontalAlignment="Left" Margin="398,1095,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="694" Height="31"/>
+            <TextBox Name="jednostka" HorizontalAlignment="Left" Margin="398,1095,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="694" Height="31"/>
             <Label Content="Jednostka organizacyjna promotora: " HorizontalAlignment="Left" Margin="159,1095,0,0" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Margin="395,1197,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Height="51"/>
-            <TextBox HorizontalAlignment="Left" Margin="831,1197,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Height="51"/>
+            <TextBox Name="podpisDyr" HorizontalAlignment="Left" Margin="395,1197,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Height="51"/>
+            <TextBox Name="podpisDzie" HorizontalAlignment="Left" Margin="831,1197,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Height="51"/>
             <Label Content="podpis dyrektora/kierownika jednostki orgdata i podpis Dziekana" HorizontalAlignment="Left" Margin="395,1253,0,0" VerticalAlignment="Top" Height="21" Width="261" FontSize="8"/>
             <Label Content="data i podpis Dziekana" HorizontalAlignment="Left" Margin="831,1253,0,0" VerticalAlignment="Top" Height="21" Width="261" FontSize="8"/>
             <Image Source="https://pbs.twimg.com/profile_images/1443921741328359461/B6z3_oN3_400x400.jpg" HorizontalAlignment="Left" Height="232" Margin="59,-102,0,0" VerticalAlignment="Top" Width="237"/>
-            <Label Content="Label" HorizontalAlignment="Left" Margin="491,0,0,0" VerticalAlignment="Center"/>
             <Label Content="Karta 
-pracy dyplomowej licencjackiej
-" HorizontalAlignment="Left" Margin="338,-55,0,0" VerticalAlignment="Top" Height="43" Width="813" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-            <TextBox HorizontalAlignment="Left" Margin="403,427,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="33"/>
-            <TextBox HorizontalAlignment="Left" Margin="629,427,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="33"/>
-            <TextBox HorizontalAlignment="Left" Margin="853,427,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="33"/>
+pracy dyplomowej 
+" HorizontalAlignment="Left" Margin="546,-53,0,0" VerticalAlignment="Top" Height="37" Width="243" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Left"/>
+            <TextBox Name="imieiNazwisko_1" HorizontalAlignment="Left" Margin="403,427,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="33"/>
+            <TextBox Name="nrAlbumu_1" HorizontalAlignment="Left" Margin="629,427,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="33"/>
+            <TextBox Name="dataiPodpis_1" HorizontalAlignment="Left" Margin="853,427,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="33"/>
+            <TextBox Name="imieiNazwisko_2" HorizontalAlignment="Left" Margin="403,459,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="33"/>
+            <TextBox Name="nrAlbumu_2" HorizontalAlignment="Left" Margin="629,459,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="33"/>
+            <TextBox Name="dataiPodpis_2" HorizontalAlignment="Left" Margin="853,459,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="33"/>
+            <TextBox Name="imieiNazwisko_3" HorizontalAlignment="Left" Margin="403,492,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="33"/>
+            <TextBox Name="nrAlbumu_3" HorizontalAlignment="Left" Margin="629,492,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="33"/>
+            <TextBox Name="dataiPodpis_3" HorizontalAlignment="Left" Margin="853,492,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="33"/>
+            <TextBox Name="imieiNazwisko_4" HorizontalAlignment="Left" Margin="403,525,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="33"/>
+            <TextBox Name="nrAlbumu_4" HorizontalAlignment="Left" Margin="629,525,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="33"/>
+            <TextBox Name="dataiPodpis_4" HorizontalAlignment="Left" Margin="853,525,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="33"/>
+            <TextBox Name="imieiNazwisko_5" HorizontalAlignment="Left" Margin="403,554,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="32"/>
+            <TextBox Name="nrAlbumu_5" HorizontalAlignment="Left" Margin="629,554,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="32"/>
+            <TextBox Name="dataiPodpis_5" HorizontalAlignment="Left" Margin="853,554,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="32"/>
+            <Label Content="Imię i nazwisko" HorizontalAlignment="Left" Height="29" Margin="403,398,0,0" VerticalAlignment="Top" Width="226" FontSize="9" Background="#FF9F9A9A" HorizontalContentAlignment="Center" FontWeight="Bold" VerticalContentAlignment="Center"/>
+            <Label Content="Nr albumu" HorizontalAlignment="Left" Height="29" Margin="627,398,0,0" VerticalAlignment="Top" Width="226" FontSize="9" Background="#FF9F9A9A" HorizontalContentAlignment="Center" FontWeight="Bold" VerticalContentAlignment="Center"/>
+            <Label Content="Data i podpis" HorizontalAlignment="Left" Height="29" Margin="851,398,0,0" VerticalAlignment="Top" Width="226" FontSize="9" Background="#FF9F9A9A" HorizontalContentAlignment="Center" FontWeight="Bold" VerticalContentAlignment="Center"/>
+            <ComboBox Name="comboBox" HorizontalAlignment="Left" Margin="765,-45,0,0" VerticalAlignment="Top" Width="120" >
+                <ComboBoxItem >licencjacka</ComboBoxItem>
+                <ComboBoxItem >inżynierska</ComboBoxItem>
+                <ComboBoxItem >magisterska</ComboBoxItem>
+            </ComboBox>
 
         </Grid>
     </ScrollViewer>
