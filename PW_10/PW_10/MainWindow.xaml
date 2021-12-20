@@ -1,0 +1,17 @@
+﻿<Window x:Class="PW_10.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PW_10"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Button Name="play" Content="Play" HorizontalAlignment="Left" Margin="65,139,0,0" VerticalAlignment="Top" Height="72" Width="130" Click="play_Click"/>
+        <Button Name="stop" Content="Stop" HorizontalAlignment="Left" Margin="65,221,0,0" VerticalAlignment="Top" Height="72" Width="130" Click="stop_Click"/>
+
+        <Label Name="status" Content="Not playing..." HorizontalContentAlignment="Center" Margin="240,335,25,10" />
+        <ListBox Name="lista" Margin="240,118,25,110" SelectionChanged="list_SelectionChanged">
+        </ListBox>
+    </Grid>
+</Window>
