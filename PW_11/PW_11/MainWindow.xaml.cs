@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using Microsoft.Win32;
+using System.Security.Cryptography;
+
 
 namespace PW_11
 {
@@ -25,42 +29,61 @@ namespace PW_11
             InitializeComponent();
         }
 
-        private void stringInput_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            hash.Text=HashString(stringInput.Text,salt.Text);
-        }
-        static string HashString(string text, string salt = "")
-        {
-            if (String.IsNullOrEmpty(text))
-            {
-                return String.Empty;
-            }
-
-            // Uses SHA256 to create the hash
-            using (var sha = new System.Security.Cryptography.SHA256Managed())
-            {
-                // Convert the string to a byte array first, to be processed
-                byte[] textBytes = System.Text.Encoding.UTF8.GetBytes(text + salt);
-                byte[] hashBytes = sha.ComputeHash(textBytes);
-
-                // Convert back to a string, removing the '-' that BitConverter adds
-                string hash = BitConverter
-                    .ToString(hashBytes)
-                    .Replace("-", String.Empty);
-
-                return hash;
-            }
-        }
 
         private void hide_Click(object sender, RoutedEventArgs e)
         {
-           
+            if (key.Text != "" && stringInput.Text != "")
+            {
+                if (System.Text.ASCIIEncoding.Unicode.GetByteCount(key.Text)==32 || System.Text.ASCIIEncoding.Unicode.GetByteCount(key.Text) == 64 || System.Text.ASCIIEncoding.Unicode.GetByteCount(key.Text) == 48)
+                    hash.Text = EncryptString(key.Text, stringInput.Text);
+
+                else
+                {
+                    MessageBoxResult result2 = MessageBox.Show("Prosze podać klucz o odpowiednim rozmiarze", "Zły rozmiar klucza", MessageBoxButton.OK, MessageBoxImage.Question);
+                }
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show("Należy uzupełnić pole klucza/tekstu", "Brak klucza/tekstu", MessageBoxButton.OK, MessageBoxImage.Question);
+            }
         }
 
         private void save_Click(object sender, RoutedEventArgs e)
         {
-
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            if (saveFileDialog.ShowDialog() == true)
+                File.WriteAllText(saveFileDialog.FileName, hash.Text);
         }
-    }
 
+
+        //Encryption
+        public static string EncryptString(string key, string plainText)
+        {
+            byte[] iv = new byte[16];
+            byte[] array;
+
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = iv;
+
+                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter streamWriter = new StreamWriter((Stream)cryptoStream))
+                        {
+                            streamWriter.Write(plainText);
+                        }
+                        array = memoryStream.ToArray();
+                    }
+                }
+            }
+
+            return Convert.ToBase64String(array);
+                
+        }      
+    }
 }

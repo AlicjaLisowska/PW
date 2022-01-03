@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="541" Width="800">
     <Grid Margin="0,0,0,-6">
-        <TextBox Name="stringInput" HorizontalAlignment="Center" Margin="0,21,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="720" Height="151" TextChanged="stringInput_TextChanged"/>
-        <Button Content="Ukryj" HorizontalAlignment="Left" Margin="40,202,0,0" VerticalAlignment="Top" Height="53" Width="148"/>
-        <Button Content="Zaposz" HorizontalAlignment="Left" Margin="612,202,0,0" VerticalAlignment="Top" Height="53" Width="148"/>
-        <TextBox Name="salt" HorizontalAlignment="Center" Margin="0,215,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" Height="57"/>
-        <Label Content="Salt: " HorizontalAlignment="Left" Margin="276,184,0,0" VerticalAlignment="Top" Width="90"/>
+        <TextBox Name="stringInput" HorizontalAlignment="Center" Margin="0,21,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="720" Height="151" />
+        <Button Name="hide" Content="Ukryj" HorizontalAlignment="Left" Margin="40,202,0,0" VerticalAlignment="Top" Height="53" Width="148" Click="hide_Click"/>
+        <Button Name="save" Content="Zapisz" HorizontalAlignment="Left" Margin="612,202,0,0" VerticalAlignment="Top" Height="53" Width="148" Click="save_Click"/>
+        <TextBox Name="key" HorizontalAlignment="Center" Margin="0,215,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" Height="57"/>
+        <Label Content="Klucz szyfrujący: " HorizontalAlignment="Left" Margin="276,184,0,0" VerticalAlignment="Top" Width="109"/>
         <TextBox Name="hash" HorizontalAlignment="Center" Margin="0,318,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="720" Height="151"/>
 
     </Grid>
