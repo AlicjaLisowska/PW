@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "dgSpecHash": "SoXVHo5450+EtVbzYpoaMg6JTLTPAUDf69RkRu2hHgg4GwyRQLf799J+7IWbBz2qn82jUd27xRUSMA+Xdp594w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\aliso\\Desktop\\SEMESTR V\\PROGRAMOWANIE WIZUALNE\\PW_12\\PW_12\\PW_12.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aliso\\.nuget\\packages\\system.reactive.windows.forms\\5.0.0\\system.reactive.windows.forms.5.0.0.nupkg.sha512",
+    "C:\\Users\\aliso\\.nuget\\packages\\system.windows.forms.ribbon35\\3.5.8\\system.windows.forms.ribbon35.3.5.8.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Pakiet „System.Reactive.Windows.Forms 5.0.0” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8” zamiast platformy docelowej projektu „net5.0-windows7.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
+      "libraryId": "System.Reactive.Windows.Forms",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Pakiet „System.Windows.Forms.Ribbon35 3.5.8” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8” zamiast platformy docelowej projektu „net5.0-windows7.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
+      "libraryId": "System.Windows.Forms.Ribbon35",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    }
+  ]
+}

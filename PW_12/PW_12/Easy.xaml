@@ -1,0 +1,23 @@
+﻿<Window x:Class="PW_12.Easy"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PW_12"
+        mc:Ignorable="d"
+        Title="Easy" Height="386" Width="659">
+    <Grid Margin="0,0,57,4">
+        <Button Name="button1" Content="" HorizontalAlignment="Left" Margin="175,82,0,0" VerticalAlignment="Top" Height="43" Width="88" Click="button1_Click" />
+        <Button Name="button2" Content="" HorizontalAlignment="Left" Margin="285,82,0,0" VerticalAlignment="Top" Height="43" Width="88" Click="button2_Click"/>
+        <Button Name="button3" Content="" HorizontalAlignment="Left" Margin="400,82,0,0" VerticalAlignment="Top" Height="43" Width="88" Click="button3_Click"/>
+        <Button Name="button4" Content="" HorizontalAlignment="Left" Margin="175,144,0,0" VerticalAlignment="Top" Height="43" Width="88" Click="button4_Click"/>
+        <Button Name="button5" Content="" HorizontalAlignment="Left" Margin="285,144,0,0" VerticalAlignment="Top" Height="43" Width="88" Click="button5_Click"/>
+        <Button Name="button6" Content="" HorizontalAlignment="Left" Margin="400,139,0,0" VerticalAlignment="Top" Height="43" Width="88" Click="button6_Click"/>
+        <Button Name="button7" Content="" HorizontalAlignment="Left" Margin="175,207,0,0" VerticalAlignment="Top" Height="43" Width="88" Click="button7_Click"/>
+        <Button Name="button8" Content="" HorizontalAlignment="Left" Margin="285,207,0,0" VerticalAlignment="Top" Height="43" Width="88" Click="button8_Click"/>
+        <Button Name="button9" Content="" HorizontalAlignment="Left" Margin="400,207,0,0" VerticalAlignment="Top" Height="43" Width="88" Click="button9_Click"/>
+        <Label Content="Time:" HorizontalAlignment="Left" Margin="100,264,0,0" VerticalAlignment="Top" Height="43" Width="72" FontSize="16" FontWeight="Bold"/>
+        <TextBlock Name="timer" HorizontalAlignment="Left" Margin="172,270,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="162" FontSize="14"/>
+
+    </Grid>
+</Window>
