@@ -22,15 +22,12 @@ namespace PW_12
         MainWindow mainWindow = new MainWindow();
         public caught()
         {
-            
             InitializeComponent();
         }
 
         private void return_Click(object sender, RoutedEventArgs e)
         {
-           
-            this.Close();
-            mainWindow.Close();
+            System.Environment.Exit(1);
         }
     }
 }

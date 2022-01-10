@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PW_12"
         mc:Ignorable="d"
-        Title="Wasted" Height="323" Width="323">
+        Title="Wasted" Height="323" Width="323"
+        >
     <Grid Margin="0,0,85,43">
         <Label Content="Wasted" HorizontalAlignment="Left" Margin="87,40,0,0" VerticalAlignment="Top" Height="38" Width="144" FontSize="16" FontFamily="Arial Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Button Name ="tryAgain" Content="Try Again" HorizontalAlignment="Left" Margin="102,98,0,0" VerticalAlignment="Top" Height="35" Width="114" Click="trAgain_Click"/>

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PW_12"
         mc:Ignorable="d"
-        Title="Easy" Height="386" Width="659">
+        Title="Easy" Height="386" Width="659"
+        >
     <Grid Margin="0,0,57,4">
         <Button Name="button1" Content="" HorizontalAlignment="Left" Margin="175,82,0,0" VerticalAlignment="Top" Height="43" Width="88" Click="button1_Click" />
         <Button Name="button2" Content="" HorizontalAlignment="Left" Margin="285,82,0,0" VerticalAlignment="Top" Height="43" Width="88" Click="button2_Click"/>

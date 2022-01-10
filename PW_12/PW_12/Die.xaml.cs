@@ -26,7 +26,7 @@ namespace PW_12
 
         private void return_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            System.Environment.Exit(1);
         }
     }
 }

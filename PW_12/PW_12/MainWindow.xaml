@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PW_12"
         mc:Ignorable="d"
-        Title="MainWindow" Height="472" Width="407">
+        Title="MainWindow" Height="472" Width="407"
+       >
     <Grid Margin="0,0,47,-6">
         
         <Label Content="Catcher" HorizontalAlignment="Left" Margin="75,61,0,0" VerticalAlignment="Top" Height="45" Width="245" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="24" FontFamily="Algerian"/>
 
         <Label Content="Zwierzę" HorizontalAlignment="Left" Margin="98,140,0,0" VerticalAlignment="Top" Width="188" FontSize="14"/>
         <ComboBox Name="animalCombo" HorizontalAlignment="Left" Margin="98,174,0,0" VerticalAlignment="Top" Width="188" Height="26" FontSize="16">
-            <ComboBoxItem Content="Kot"/>
+            <ComboBoxItem Content="Kot" IsSelected="True"/>
             <ComboBoxItem Content="Ryba"/>
             <ComboBoxItem Content="Mysz"/>
             <ComboBoxItem Content="Krokodyl"/>

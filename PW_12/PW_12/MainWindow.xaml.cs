@@ -35,22 +35,20 @@ namespace PW_12
             {
                 Easy easy = new Easy(this);
                 easy.Show();
-                this.Close();
+                
             }
             if (level.SelectedIndex == 1)
             {
                 Medium medium = new Medium(this);
                 medium.Show();
-                this.Close();
+               
             }
             if (level.SelectedIndex == 2)
             {
                 Hard hard = new Hard(this);
                 hard.Show();
-                this.Close();
+                
             }
-
-
         }
     }
 }
